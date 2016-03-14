@@ -6,6 +6,9 @@
   "timeout": 6,
   "memorySize": 1024,
   "custom": {
+    "cors": {
+      "allowOrigin": "*"
+    },
     "optimize": {
       "exclude": [ "aws-sdk" ],
       "transforms": [

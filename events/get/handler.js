@@ -1,13 +1,18 @@
 'use strict';
 
-const loadEnv = require('serverless-helpers-js').loadEnv;
-const respond = require('../lib').respond;
+require('serverless-helpers-js').loadEnv();
 
-loadEnv();
+const Facebook = require('../lib').Facebook;
+const facebook = new Facebook({
+  id: process.env.FACEBOOK_EVENT_PROXY_APP_ID,
+  secret: process.env.FACEBOOK_EVENT_PROXY_APP_SECRET,
+});
+const pageId = process.env.FACEBOOK_EVENT_PROXY_PAGE_ID;
 
 exports.handler = function handler(event, context) {
-  respond(
-    event,
-    (err, response) => context.done(err, response)
-  );
+  facebook.getEvents(pageId).then((allEvents) => {
+    context.done(null, allEvents);
+  }, (err) => {
+    context.done(JSON.stringify(err));
+  });
 };

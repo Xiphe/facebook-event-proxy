@@ -10,8 +10,13 @@
     "url": "git://github.com/"
   },
   "keywords": [],
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^2.4.0",
+    "eslint-config-airbnb": "^6.1.0"
+  },
   "dependencies": {
+    "es6-promise": "^3.1.2",
+    "fb": "^1.0.2",
     "serverless-helpers-js": "~0.1.0"
   }
 }
