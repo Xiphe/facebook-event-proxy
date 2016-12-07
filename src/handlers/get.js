@@ -3,6 +3,7 @@
 const getToken = require('../lib/getToken');
 const authenticate = require('../lib/authenticate');
 const getEvents = require('../lib/getEvents');
+const convertTime = require('../lib/convertTime');
 
 module.exports = function get(event, context, callback) {
   const pageId = process.env.FACEBOOK_EVENT_PROXY_PAGE_ID;
@@ -15,6 +16,7 @@ module.exports = function get(event, context, callback) {
     .then(getToken(clientCredentials))
     .then(authenticate)
     .then(getEvents(pageId))
+    .then(convertTime)
     .then((allEvents) => {
       callback(null, {
         statusCode: 200,
