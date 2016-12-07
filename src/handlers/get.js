@@ -4,9 +4,8 @@ const getToken = require('../lib/getToken');
 const authenticate = require('../lib/authenticate');
 const getEvents = require('../lib/getEvents');
 
-const pageId = process.env.FACEBOOK_EVENT_PROXY_PAGE_ID;
-
 module.exports = function get(event, context, callback) {
+  const pageId = process.env.FACEBOOK_EVENT_PROXY_PAGE_ID;
   const clientCredentials = {
     id: process.env.FACEBOOK_EVENT_PROXY_APP_ID,
     secret: process.env.FACEBOOK_EVENT_PROXY_APP_SECRET,

@@ -1,6 +1,6 @@
 'use strict';
 
-const FB = require('fb');
+const FB = require('./acl/fb');
 
 module.exports = function authenticate(token) {
   FB.setAccessToken(token);

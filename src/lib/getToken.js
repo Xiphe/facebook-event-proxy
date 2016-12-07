@@ -1,6 +1,6 @@
 'use strict';
 
-const FB = require('fb');
+const FB = require('./acl/fb');
 const Deferred = require('./Deferred');
 
 module.exports = clientCredentials => () => {

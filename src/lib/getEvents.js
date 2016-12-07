@@ -1,7 +1,7 @@
 'use strict';
 
 const Deferred = require('./Deferred');
-const FB = require('fb');
+const FB = require('./acl/fb');
 
 const LIMIT = 20;
 
