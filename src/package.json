@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
-    "fb": "1.0.2"
+    "fb": "1.0.2",
+    "moment-timezone": "0.5.10"
   }
 }
