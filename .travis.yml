@@ -1,0 +1,26 @@
+sudo: false
+
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+
+node_js:
+  - '4'
+
+install:
+  - npm install
+  - cd src && npm install
+  - npm prune
+
+script:
+  - npm test
+
+after_success:
+  - npm run deploy -- --stage=prod
+
+branches:
+  branches:
+    only:
+      - master
