@@ -30,7 +30,10 @@ describe('get', () => {
     handler.get(null, null, (err, response) => {
       expect(err).toBe(null);
       expect(response.statusCode).toBe(200);
-      expect(JSON.parse(response.body)[0]).toEqual(data[0]);
+      expect(JSON.parse(response.body)[0]).toEqual(Object.assign({}, data[0], {
+        dateStr: '09.12.2016',
+        timeStr: '19:00',
+      }));
       done();
     });
   });
