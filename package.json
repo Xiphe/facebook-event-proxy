@@ -4,7 +4,8 @@
   "description": "serverless app to fetch events of a facebook page without tracking the user",
   "scripts": {
     "test": "JASMINE_CONFIG_PATH=jasmine.config.json jasmine",
-    "watch": "watch 'npm test' -d -u -p '/node_modules/g'"
+    "watch": "watch 'npm test' -d -u -p '/node_modules/g'",
+    "deploy": "cd src && serverless deploy"
   },
   "author": "Hannes Diercks <facebook-event-proxy@xiphe.net>",
   "license": "MIT",
