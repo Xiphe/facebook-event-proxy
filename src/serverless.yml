@@ -1,0 +1,26 @@
+service: facebook-event-proxy
+
+frameworkVersion: "=1.3.0"
+
+custom:
+  defaultStage: dev
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: ${opt:stage, self:custom.defaultStage}
+  region: eu-central-1
+  profile: serverless
+  environment:
+    FACEBOOK_EVENT_PROXY_STAGE: ${self:provider.stage}
+    FACEBOOK_EVENT_PROXY_APP_ID: ${env:FACEBOOK_EVENT_PROXY_APP_ID}
+    FACEBOOK_EVENT_PROXY_APP_SECRET: ${env:FACEBOOK_EVENT_PROXY_APP_SECRET}
+    FACEBOOK_EVENT_PROXY_PAGE_ID: ${env:FACEBOOK_EVENT_PROXY_PAGE_ID}
+
+functions:
+  get:
+    handler: handler.get
+    events:
+      - http:
+          path: /
+          method: GET
