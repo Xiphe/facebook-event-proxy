@@ -18,6 +18,9 @@ module.exports = function get(event, context, callback) {
     .then((allEvents) => {
       callback(null, {
         statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
         body: JSON.stringify(allEvents),
       });
     })
